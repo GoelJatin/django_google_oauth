@@ -12,7 +12,7 @@ services:
     env_file: .env
     volumes:
       - ./src:/app
-      - static:/app/google_oauth/static
+      - static:/app/oauth/static
     depends_on:
       - postgres
 
@@ -21,7 +21,7 @@ services:
     ports:
       - 80:80
     volumes:
-      - static:/app/google_oauth/static
+      - static:/app/oauth/static
     depends_on:
       - django
 

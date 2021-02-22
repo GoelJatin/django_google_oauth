@@ -26,7 +26,7 @@ restart:
 
 # setup-local-db:
 # 	$(MAKE) local-setup
-# 	cd ./src/google_oauth && python manage.py migrate
+# 	cd ./src/oauth && python manage.py migrate
 
 # web:
 # 	$(MAKE) local-setup
