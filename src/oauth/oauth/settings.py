@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'bootstrap4',
+    'crispy_forms',
+    'user_auth',
 ]
 
 MIDDLEWARE = [
@@ -125,3 +128,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
+BOOTSTRAP4 = {
+    'include_jquery': True
+}
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
