@@ -11,5 +11,5 @@ class User(models.Model):
 
 
 class UserAuth(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, primary_key=True, on_delete=models.CASCADE)
     password = models.BinaryField(unique=True)
