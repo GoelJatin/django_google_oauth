@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'crispy_forms',
     'user_auth',
+    'blog',
 ]
 
 MIDDLEWARE = [
@@ -59,7 +60,7 @@ ROOT_URLCONF = 'oauth.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
