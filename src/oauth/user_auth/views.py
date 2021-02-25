@@ -14,10 +14,10 @@ class LoginView(View):
     template = 'login.html'
 
     def get(self, request):
-        user_id = request.session.get('user_id')
+        username = request.session.get('username')
 
-        if user_id:
-            return redirect('/blogs')
+        if username:
+            return redirect('/blogs/')
 
         return render(
             request,
@@ -54,18 +54,18 @@ class LoginView(View):
                     }
                 )
 
-            request.session['user_id'] = user_auth.id
-            return redirect('/blogs')
+            request.session['username'] = user.username
+            return redirect('/blogs/')
 
 
 class SignupView(View):
     template = 'signup.html'
 
     def get(self, request):
-        user_id = request.session.get('user_id')
+        username = request.session.get('username')
 
-        if user_id:
-            return redirect('/blogs')
+        if username:
+            return redirect('/blogs/')
 
         return render(
             request,
@@ -91,8 +91,8 @@ class SignupView(View):
             user_auth = UserAuth.objects.create(**user_auth)
             user_auth.save()
 
-            request.session['user_id'] = user_auth.id
-            return redirect('/blogs')
+            request.session['username'] = user.username
+            return redirect('/blogs/')
 
         return render(
             request,
@@ -101,3 +101,10 @@ class SignupView(View):
                 'signup_form': SignupForm()
             }
         )
+
+
+def logout(request):
+    if 'username' in request.session:
+        del request.session['username']
+
+    return redirect('/login')
