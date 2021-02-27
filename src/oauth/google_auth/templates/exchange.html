@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<h3>Exchanged the Authorization Code for Access token</h3>
+
+<p>&emsp;Access token: <strong>{{ access_token }}</strong></p>
+
+<br>
+<hr>
+<br>
+
+<p>Click <a href="{% url 'google_auth:user_info' %}">Next</a> to get user info using the token</p>
+
+{% endblock %}

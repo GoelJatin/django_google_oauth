@@ -9,6 +9,12 @@ from .forms import LoginForm, SignupForm
 
 from .encrypt import encrypt
 
+from google_auth.auth_helper import GoogleOauth
+
+
+GOOGLE_OAUTH = GoogleOauth()
+GOOGLE_OAUTH.setup()
+
 
 class LoginView(View):
     template = 'login.html'
@@ -19,11 +25,14 @@ class LoginView(View):
         if username:
             return redirect('/blogs/')
 
+        print(GOOGLE_OAUTH.get_authorization_url())
+
         return render(
             request,
             self.template,
             {
-                'login_form': LoginForm()
+                'login_form': LoginForm(),
+                'google_auth_url': GOOGLE_OAUTH.get_authorization_url()
             }
         )
 
@@ -50,7 +59,8 @@ class LoginView(View):
                     request,
                     self.template,
                     {
-                        'login_form': LoginForm(data)
+                        'login_form': LoginForm(data),
+                        'google_auth_url': GOOGLE_OAUTH.get_authorization_url()
                     }
                 )
 

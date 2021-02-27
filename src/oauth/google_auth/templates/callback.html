@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<h3>User has authorised the request and the application has received the Authorization Code</h3>
+
+<p>&emsp;Callback URL: <strong>{{ callback_url }}</strong></p>
+<p>&emsp;Code: <strong>{{ code }}</strong></p>
+
+<br>
+<hr>
+<br>
+
+<p>Click <a href="{% url 'google_auth:exchange' %}?code={{ code }}">Next</a> to continue</p>
+
+{% endblock %}

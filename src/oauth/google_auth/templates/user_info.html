@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<h3>Got the user info using the access token</h3>
+
+<p>&emsp;Name: <strong>{{ name }}</strong></p>
+<p>&emsp;Email: <strong>{{ email }}</strong></p>
+
+<br>
+<hr>
+<br>
+
+{% endblock %}
