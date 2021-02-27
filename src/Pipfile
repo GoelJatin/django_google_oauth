@@ -13,6 +13,7 @@ django-bootstrap4 = "*"
 django-crispy-forms = "*"
 google-api-python-client = "*"
 google-auth = "*"
+google-auth-oauthlib = "*"
 
 [requires]
 python_version = "3.8"
