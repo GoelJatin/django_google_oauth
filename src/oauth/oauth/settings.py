@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'user_auth',
     'blog',
+    'google_auth'
 ]
 
 MIDDLEWARE = [
